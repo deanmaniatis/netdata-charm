@@ -1,0 +1,24 @@
+#!/bin/bash
+# Here do anything needed to install the service
+# i.e. apt-get install -y foo  or  bzr branch http://myserver/mycode /srv/webroot
+# Make sure this hook exits cleanly and is idempotent, common problems here are
+# failing to account for a debconf question on a dependency, or trying to pull
+# from github without installing git first.
+
+set -e
+
+status-set maintenance "Installing netdata prerequisites"
+apt-get install -y zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autoconf-archive autogen automake pkg-config curl
+
+status-set maintenance "Fetching netdata"
+# download it - the directory 'netdata' will be created
+git clone https://github.com/firehol/netdata.git --depth=1
+cd netdata
+
+status-set maintenance "Installing netdata"
+# build it, install it, start it
+./netdata-installer.sh
+
+open-port 19999
+
+status-set active "Installed"

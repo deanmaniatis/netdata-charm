@@ -1,0 +1,22 @@
+name: netdata
+subordinate: true
+summary: netdata is a lightweight performance and monitoring tool offering a rich web user interface.
+maintainer: Dean Maniatis <dean.maniatis@gmail.com>
+description: |
+  netdata is a system for distributed real-time performance and health monitoring. It provides unparalleled insights, in real-time, of everything happening on the system it runs (including applications such as web and database servers), using modern interactive web dashboards.
+
+  netdata is fast and efficient, designed to permanently run on all systems (physical & virtual servers, containers, IoT devices), without disrupting their core function.
+tags:
+  - analytics
+  - monitoring
+  - performance
+provides:
+  website:
+    interface: http
+requires:
+  container:
+    interface: juju-info
+    scope: container
+series:
+  - xenial
+  - trusty
