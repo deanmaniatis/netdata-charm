@@ -19,7 +19,7 @@ You can install `netdata` to a running unit (e.g. etcd) by issuing:
     juju deploy netdata
     juju add-relation netdata etcd
 
-You can then browse to http://ip-address:19999 to view the web user interface of netdata.
+You can then browse to `http://ip-address:19999` to view the web user interface of netdata.
 
 
 # Configuration
