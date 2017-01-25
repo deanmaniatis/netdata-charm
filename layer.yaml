@@ -1,0 +1,17 @@
+repo: git@github.com:juju-solutions/layer-apache-spark.git
+includes: ['layer:basic']
+options:
+  basic:
+    packages:
+      - zlib1g-dev
+      - uuid-dev
+      - libmnl-dev
+      - gcc
+      - make
+      - git
+      - autoconf
+      - autoconf-archive
+      - autogen
+      - automake
+      - pkg-config
+      - curl
